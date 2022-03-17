@@ -45,28 +45,38 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: [
           Expanded(
-            flex: 2,
-            child: GestureDetector(
-              onTap: () {
-                if (gameHasStarted) {
-                  jump;
-                } else {
-                  startGame();
-                }
-              },
-              child: AnimatedContainer(
-                alignment: Alignment(0, birdYaxis),
-                duration: Duration(milliseconds: 0),
-                color: Colors.blue,
-                child: MyBird(),
-              ),
-            ),
+              flex: 2,
+              child: Stack(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      if (gameHasStarted) {
+                        jump;
+                      } else {
+                        startGame();
+                      }
+                    },
+                    child: AnimatedContainer(
+                      alignment: Alignment(0, birdYaxis),
+                      duration: Duration(milliseconds: 0),
+                      color: Colors.blue,
+                      child: MyBird(),
+                    ),
+                  ),
+                  Container(
+                    child: Text('T A P   T O   P L A Y '),
+                  )
+                ],
+              )),
+          Container(
+            height: 15,
+            color: Colors.green,
           ),
           Expanded(
             child: Container(
               color: Colors.brown,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -78,17 +88,26 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Text("0"),
+                      Text(
+                        "0",
+                        style: TextStyle(color: Colors.white, fontSize: 35),
+                      ),
                     ],
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("BEST"),
+                      Text(
+                        "BEST",
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
                       const SizedBox(
                         height: 20,
                       ),
-                      Text("0"),
+                      Text(
+                        "0",
+                        style: TextStyle(color: Colors.white, fontSize: 35),
+                      ),
                     ],
                   )
                 ],
